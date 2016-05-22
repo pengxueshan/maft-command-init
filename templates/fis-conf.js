@@ -27,7 +27,7 @@ fis.match(/.*\.(html|htm|php)$/, {
 });
 
 // 样式文件使用的属性
-fis.match(/\/css(?:.*\/)(.*)\.(?:css|less|scss)/i, {
+fis.match(/.*\.(css|less|scss)$/i, {
     useSprite: maftConf.useSprite,
     useHash: maftConf.useHash,
     spriteRelease: '/img/$1.png',
@@ -35,31 +35,31 @@ fis.match(/\/css(?:.*\/)(.*)\.(?:css|less|scss)/i, {
 });
 
 // 编译less文件
-fis.match('/css/**.less', {
+fis.match(/.*\.less$/i, {
     rExt: '.css',
     parser: fis.plugin('less')
 });
 
 // 编译scss文件
-fis.match('/css/**.scss', {
+fis.match(/.*\.scss$/i, {
    rExt: '.css',
    parser: fis.plugin('node-sass')
 });
 
 // 字体文件处理
-fis.match("/font/**", {
+fis.match("./src/font/**", {
     useHash: maftConf.useHash
 });
 
 // 图片文件处理
-fis.match("/img/**", {
+fis.match("./src/img/**", {
     useHash: maftConf.useHash
-}).match('/img/**.png', {
+}).match('./src/img/**.png', {
     optimizer: fis.plugin('png-compressor')
 });
 
 // js文件处理
-fis.match('/js/**', {
+fis.match('./src/js/**', {
     useHash: maftConf.useHash
 });
 
@@ -80,7 +80,7 @@ fis.match('**mixins?.{less,scss}', {
     release: false
 }).match('**mixins?/**.{less,scss}', {
     release: false
-}).match('/slice/**', {
+}).match('./src/slice/**', {
     release: false
 });
 
