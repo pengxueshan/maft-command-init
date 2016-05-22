@@ -6,7 +6,7 @@ fis.set("maft", {
 
 // project.files 项目源码
 // project.ignore 需要排除的文件
-fis.set('project.files', ['./src/**'])
+fis.set('project.files', ['./src/**', './src/**/**'])
 .set('project.ignore', ['node_modules/**', '.idea/**', '.gitignore', '**/_*.scss', '.docs/**', 'editorconfig', 'dist/**', 'publish/**', '.dist/**', '.git/**', '.svn/**', 'gruntfile.js', 'gulpfile.js', 'fis-conf.js']);
 
 // 让资源支持相对路径
@@ -70,7 +70,7 @@ fis.match('./src/js/**', {
 //     })
 // });
 
-// 所有的文件产出到 static/ 目录下
+// 所有的文件产出到 dist/ 目录下
 fis.match('*', {
     release: './dist/$0'
 });
